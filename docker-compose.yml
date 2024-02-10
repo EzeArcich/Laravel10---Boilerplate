@@ -1,0 +1,21 @@
+version: '3'
+services:
+ web:
+   build:
+     context: .
+   ports:
+     - "8080:80"
+   depends_on:
+     - db
+   volumes:
+     - ./Laravel10:/var/www/html/Laravel10
+
+ db:
+   container_name: postgres
+   image: postgres:latest
+   ports:
+     - "54320:5432"
+   environment:
+     POSTGRES_DB: laravel
+     POSTGRES_USER: your_postgres_user
+     POSTGRES_PASSWORD: your_postgres_password
